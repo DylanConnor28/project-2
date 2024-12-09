@@ -1,95 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <base href="/">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Demonstration for project-2">
-
-  <style>
-    :root, html, body {
-      margin: 0;
-      padding: 0;
-    }
-    #demo {
-      margin: var(--ddd-spacing-2);
-    }
-    project-2 {
-      margin: var(--ddd-spacing-2);
-      border: var(--ddd-border-md);
-      border-radius: var(--ddd-radius-lg);
-    }
-    project-2:hover {
-      box-shadow: var(--ddd-boxShadow-sm);
-    }
-    #example {
-      --project-2-font-size: var(--ddd-font-size-l);
-      background-color: var(--ddd-accent-2);
-      color: var(--ddd-primary-17);
-    }
-  </style>
-  <title>project-2</title>
-</head>
-
-<body>
-  <div id="demo">
-    <h1>project-2</h1>
-    <!-- this is going to do whatever the tag's defaults are -->
-    <h2>Default</h2>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title of page when user logs on-->
+    <title>Design Your Character!</title>
+    <script type="module" src="./project-2.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1e1e1e;
+        color: #f5f5f5;
+      }
+      h1 {
+        text-align: center;
+        font-size: 2rem;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Design Your Character!</h1>
     <project-2></project-2>
-    <h2>Slot usage</h2>
-    <project-2 data-accent="2" data-primary="17"><div>Sample slot content</div></project-2>
-    <h2>Property usage</h2>
-    <project-2 id="example" title="Sample property title"></project-2>
-  </div>
-  <script type="module" src="./project-2.js"></script>
-
-  <!-- Take HAX, the Web and you further down the rabbit hole -->
-  <style>
-    #follow-the-white-rabbit {
-      margin: var(--ddd-spacing-4) auto 64px  16px;
-      background-color: var(--ddd-accent-4);
-      color: black;
-    }
-    #follow-the-white-rabbit[open] summary {
-      background-color: var(--ddd-accent-4) !important;
-      color: black;
-    }
-    #follow-the-white-rabbit[open] .content {
-      padding: 0 var(--ddd-spacing-4);
-    }
-    #follow-the-white-rabbit ul,
-    #follow-the-white-rabbit li {
-      padding: 0;
-      margin: 0;
-    }
-    #follow-the-white-rabbit li {
-      font-size: var(--ddd-font-size-xs);
-      list-style: none;
-    }
-    #follow-the-white-rabbit li strong,
-    #follow-the-white-rabbit li a {
-      padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
-      color: black;
-      display: block;
-      font-weight: bold;
-    }
-    #follow-the-white-rabbit li:focus-within a,
-    #follow-the-white-rabbit li:hover a {
-      background-color: black;
-      color: yellow;
-    }
-  </style>
+  </body>
   <details id="follow-the-white-rabbit" open>
     <summary>How to Develop</summary>
     <div class="content">
       <p>
       
+        <strong>Checkout the rpg character on github:</strong> <a href="https://github.com/DylanConnor28/project-2" target="_blank" rel="nofollow">DylanConnor28/project-2</a>
+        
       </p>
       <p>
         You can edit the current page by modifying <code>index.html</code><br />
-        To edit your <strong>project-2</strong> tag, modify <code>src/project-2.js</code>.
+        To edit <strong>project-2</strong> tag, modify <code>/project-2.js</code>.
         This file contains all the HTML, CSS and JavaScript used to render your elements above!
       </p>
       <p>
