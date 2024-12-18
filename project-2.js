@@ -134,29 +134,30 @@ export class RpgMe extends DDDSuper(I18NMixin(LitElement)) {
   _defaultCharacterSettings() {
     return {
       seed: "00000000",
-      base: 0,
+      accessories: 0,
+      base: 0,  
       face: 0,
       faceitem: 0,
       hair: 0,
       pants: 0,
       shirt: 0,
       skin: 0,
-      glasses: false,
       hatColor: 0,
-      size: 200,
-      name: "",
+      hat: "none",
       fire: false,
       walking: false,
+      circle: false,
     };
   }
 
   _renderCharacterPreview() {
-    const { seed, name, base, face, faceitem, hair, pants, shirt, skin, hatColor, fire, walking, size } = this.characterSettings;
+    const { seed, name, accessories, base, face, faceitem, hair, pants, shirt, skin, hatColor, fire, walking, circle, size } = this.characterSettings;
     return html`
       <div class="character-preview">
         <div class="seed-display">Seed: ${seed}</div>
         <div class="character-name">${name}</div>
         <rpg-character
+          accessories="${accessories}"
           base="${base}"
           face="${face}"
           faceitem="${faceitem}"
@@ -167,6 +168,7 @@ export class RpgMe extends DDDSuper(I18NMixin(LitElement)) {
           hatColor="${hatColor}"
           .fire="${fire}"
           .walking="${walking}"
+          .circle="${circle}"
           style="--character-size: ${size}px; --hat-color: hsl(${hatColor}, 100%, 50%);"
         ></rpg-character>
       </div>
@@ -178,6 +180,8 @@ export class RpgMe extends DDDSuper(I18NMixin(LitElement)) {
       <div class="controls">
         ${this._renderInputControl("Character Name:", "characterNameInput", "text", "Enter character name", "name")}
         ${this._renderCheckboxControl("Hair:", "hairToggle", "base", 1, 0, "Has Hair")}
+        ${this._renderSliderControl("Character Accessories:", "accessories", 0, 9, "accessories")}
+        ${this._renderSliderControl("Character Base:", "base", 0, 9, "base")}
         ${this._renderSliderControl("Character Size:", "size", 100, 600, "size")}
         ${this._renderSliderControl("Face:", "face", 0, 5, "face")}
         ${this._renderSliderControl("Face Item:", "faceitem", 0, 9, "faceitem")}
@@ -188,6 +192,7 @@ export class RpgMe extends DDDSuper(I18NMixin(LitElement)) {
         ${this._renderSliderControl("Hat Color:", "hatColor", 0, 9, "hatColor")}
         ${this._renderCheckboxControl("On Fire", null, "fire", true, false)}
         ${this._renderCheckboxControl("Walking", null, "walking", true, false)}
+        ${this._renderCheckboxControl("Circle", null, "circle", true, false)}
         <button @click="${this._generateShareLink}">Generate Share Link</button>
       </div>
     `;
@@ -238,6 +243,7 @@ export class RpgMe extends DDDSuper(I18NMixin(LitElement)) {
     const values = paddedSeed.split("").map(Number);
 
     [
+      this.characterSettings.accessories,
       this.characterSettings.base,
       this.characterSettings.face,
       this.characterSettings.faceitem,
@@ -252,8 +258,8 @@ export class RpgMe extends DDDSuper(I18NMixin(LitElement)) {
   }
 
   _generateSeed() {
-    const { base, face, faceitem, hair, pants, shirt, skin, hatColor } = this.characterSettings;
-    this.characterSettings.seed = `${base}${face}${faceitem}${hair}${pants}${shirt}${skin}${hatColor}`;
+    const { accessories, base, face, faceitem, hair, pants, shirt, skin, hatColor } = this.characterSettings;
+    this.characterSettings.seed = `${accessories}${base}${face}${faceitem}${hair}${pants}${shirt}${skin}${hatColor}`;
   }
 
   _updateSetting(key, value) {
